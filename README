@@ -1,4 +1,4 @@
-Date::Persian
+Date::Persian::Simple
 
 The README  is  used  to  introduce the module and provide instructions on how to
 install the module, any machine dependencies it may have (for example C compilers
@@ -25,21 +25,21 @@ SUPPORT AND DOCUMENTATION
 After  installing, you  can  find documentation for this module with  the perldoc
 command.
 
-    perldoc Date::Persian
+    perldoc Date::Persian::Simple
 
 You can also look for information at:
 
     RT, CPAN's request tracker
-        http://rt.cpan.org/NoAuth/Bugs.html?Dist=Date-Persian
+        http://rt.cpan.org/NoAuth/Bugs.html?Dist=Date-Persian-Simple
 
     AnnoCPAN, Annotated CPAN documentation
-        http://annocpan.org/dist/Date-Persian
+        http://annocpan.org/dist/Date-Persian-Simple
 
     CPAN Ratings
-        http://cpanratings.perl.org/d/Date-Persian
+        http://cpanratings.perl.org/d/Date-Persian-Simple
 
     Search CPAN
-        http://search.cpan.org/dist/Date-Persian/
+        http://search.cpan.org/dist/Date-Persian-Simple/
 
 LICENSE AND COPYRIGHT
 
