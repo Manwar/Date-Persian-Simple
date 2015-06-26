@@ -1,5 +1,11 @@
 Revision history for Date::Persian::Simple
 
+0.04  Fri Jun 26 14:45:00 2015
+      - Removed duplicate tests from the test script.
+      - Renamed method is_persian_leap_year() to is_leap_year().
+      - Added sample code for method from_gregorian() and from_julian() to the section "SYNOPSIS".
+      - Tidied up test script in general.
+
 0.03  Mon May 25 12:55:00 2015
       - Removed the dependency on Date::Utils::Bahai.
       - Added the dependency on Date::Utils v0.08.

@@ -1,6 +1,6 @@
 package Date::Persian::Simple;
 
-$Date::Persian::Simple::VERSION = '0.03';
+$Date::Persian::Simple::VERSION = '0.04';
 
 =head1 NAME
 
@@ -8,7 +8,7 @@ Date::Persian::Simple - Represents Persian date.
 
 =head1 VERSION
 
-Version 0.03
+Version 0.04
 
 =cut
 
@@ -79,17 +79,23 @@ sub BUILD {
     use strict; use warnings;
     use Date::Persian::Simple;
 
-    # prints today's persian date
+    # prints today's Persian date.
     print Date::Persian::Simple->new, "\n";
 
-    # prints given persian date
+    # prints the given Persian date.
     print Date::Persian::Simple->new({ year => 1394, month => 1, day => 1 })->as_string;
 
-    # prints equivalent Julian date
+    # prints the equivalent Julian date.
     print $date->to_julian, "\n";
 
-    # prints equivalent Gregorian date
-    print $date->to_gregorian, "\n";
+    # prints the equivalent Gregorian date.
+    print sprintf("%04d-%02d-%02d", $date->to_gregorian), "\n";
+
+    # prints the equivalent Persian date of the given Julian date
+    print $date->from_julian(2455538.5), "\n";
+
+    # prints the equivalent Persian date of the Gregorian date.
+    print $date->from_gregorian(2015, 6, 25), "\n";
 
     # prints day of the week index (0 for Yekshanbeh, 1 for Doshanbehl and so on.
     print $date->day_of_week, "\n";
@@ -206,23 +212,17 @@ sub day_of_week {
     return $self->jwday($self->to_julian);
 }
 
-=head2 is_persian_leap_year($year)
+=head2 is_leap_year($year)
 
 Returns 0 or 1 if the given Persian year C<$year> is a leap year or not.
 
 =cut
 
-sub is_persian_leap_year {
+sub is_leap_year {
     my ($self, $year) = @_;
 
     return (((((($year - (($year > 0) ? 474 : 473)) % 2820) + 474) + 38) * 682) % 2816) < 682;
 }
-
-=head2 days_in_persian_month_year($month, $year)
-
-Returns total number of days in the given Persian month year.
-
-=cut
 
 sub days_in_persian_month_year {
     my ($self, $month, $year) = @_;
