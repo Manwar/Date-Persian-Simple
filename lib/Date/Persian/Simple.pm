@@ -1,6 +1,6 @@
 package Date::Persian::Simple;
 
-$Date::Persian::Simple::VERSION = '0.05';
+$Date::Persian::Simple::VERSION = '0.06';
 
 =head1 NAME
 
@@ -8,7 +8,7 @@ Date::Persian::Simple - Represents Persian date.
 
 =head1 VERSION
 
-Version 0.05
+Version 0.06
 
 =cut
 
@@ -36,13 +36,8 @@ our $PERSIAN_MONTHS = [
 ];
 
 our $PERSIAN_DAYS = [
-    '<yellow><bold>    Yekshanbeh </bold></yellow>',
-    '<yellow><bold>     Doshanbeh </bold></yellow>',
-    '<yellow><bold>    Seshhanbeh </bold></yellow>',
-    '<yellow><bold> Chaharshanbeh </bold></yellow>',
-    '<yellow><bold>   Panjshanbeh </bold></yellow>',
-    '<yellow><bold>         Jomeh </bold></yellow>',
-    '<yellow><bold>       Shanbeh </bold></yellow>'
+    'Yekshanbeh', 'Doshanbeh', 'Seshhanbeh', 'Chaharshanbeh',
+    'Panjshanbeh', 'Jomeh', 'Shanbeh'
 ];
 
 has persian_epoch  => (is => 'ro', default => sub { 1948320.5       });
@@ -222,6 +217,31 @@ sub is_leap_year {
     my ($self, $year) = @_;
 
     return (((((($year - (($year > 0) ? 474 : 473)) % 2820) + 474) + 38) * 682) % 2816) < 682;
+}
+
+=head2 get_calendar($month, $year)
+
+Returns color coded Persian calendar for the given C<$month> and C<$year>.
+
+=cut
+
+sub get_calendar {
+    my ($self, $month, $year) = @_;
+
+    $self->validate_month($month);
+    $self->validate_year($year);
+
+    my $date = Date::Persian::Simple->new({ year => $year, month => $month, day => 1 });
+    my $days = $self->days_in_persian_month_year($month, $year);
+
+    return $self->create_calendar(
+        {
+            start_index => $date->day_of_week,
+            month_name  => $self->persian_months->[$month],
+            days        => $days,
+            day_names   => $self->persian_days,
+            year        => $year
+        });
 }
 
 sub days_in_persian_month_year {

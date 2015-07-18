@@ -1,5 +1,9 @@
 Revision history for Date::Persian::Simple
 
+0.06  Sat Jul 18 07:45:00 2015
+      - Added the dependency on Date::Utils v0.10.
+      - Added method get_calendar().
+
 0.05  Sun Jul 05 17:50:00 2015
       - Added the dependency on Date::Utils v0.09.
 
