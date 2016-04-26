@@ -1,5 +1,11 @@
 Revision history for Date::Persian::Simple
 
+0.08  Tue Apr 26 10:35:00 2016
+      - Updated the dependency on Date::Utils v0.16.
+      - Added $AUTHORITY.
+      - Added section "SEE ALSO".
+      - Updated copyright year information.
+
 0.07  Wed Aug 26 09:35:00 2015
       - Added the dependency on Date::Utils v0.11.
 

@@ -1,6 +1,7 @@
 package Date::Persian::Simple;
 
-$Date::Persian::Simple::VERSION = '0.07';
+$Date::Persian::Simple::VERSION   = '0.08';
+$Date::Persian::Simple::AUTHORITY = 'cpan:MANWAR';
 
 =head1 NAME
 
@@ -8,7 +9,7 @@ Date::Persian::Simple - Represents Persian date.
 
 =head1 VERSION
 
-Version 0.07
+Version 0.08
 
 =cut
 
@@ -283,7 +284,21 @@ Mohammad S Anwar, C<< <mohammad.anwar at yahoo.com> >>
 
 =head1 REPOSITORY
 
-L<https://github.com/Manwar/Date-Persian-Simple>
+L<https://github.com/manwar/Date-Persian-Simple>
+
+=head1 SEE ALSO
+
+=over 4
+
+=item L<Date::Bahai::Simple>
+
+=item L<Date::Gregorian::Simple>
+
+=item L<Date::Hijri::Simple>
+
+=item L<Date::Saka::Simple>
+
+=back
 
 =head1 BUGS
 
@@ -322,7 +337,7 @@ L<http://search.cpan.org/dist/Date-Persian-Simple/>
 
 =head1 LICENSE AND COPYRIGHT
 
-Copyright (C) 2015 Mohammad S Anwar.
+Copyright (C) 2015 - 2016 Mohammad S Anwar.
 
 This program  is  free software; you can redistribute it and / or modify it under
 the  terms  of the the Artistic License (2.0). You may obtain a  copy of the full
