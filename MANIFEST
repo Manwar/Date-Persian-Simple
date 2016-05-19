@@ -6,6 +6,6 @@ Makefile.PL
 README
 lib/Date/Persian/Simple.pm
 t/00-load.t
-t/01-date-persian-simple.t
+t/date-persian-simple.t
 t/manifest.t
 t/pod.t

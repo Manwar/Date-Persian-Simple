@@ -1,5 +1,12 @@
 Revision history for Date::Persian::Simple
 
+0.09  Thu May 19 10:15:00 2016
+      - Updated the dependency on Date::Utils v0.19.
+      - Updated method get_calendar() and method as_string() to use get_month_name().
+      - Renamed method persian_months() to months().
+      - Renamed method persian_days() to days().
+      - Updated method get_calendar() to respect the above changes.
+
 0.08  Tue Apr 26 10:35:00 2016
       - Updated the dependency on Date::Utils v0.16.
       - Added $AUTHORITY.

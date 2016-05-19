@@ -1,6 +1,6 @@
 package Date::Persian::Simple;
 
-$Date::Persian::Simple::VERSION   = '0.08';
+$Date::Persian::Simple::VERSION   = '0.09';
 $Date::Persian::Simple::AUTHORITY = 'cpan:MANWAR';
 
 =head1 NAME
@@ -9,7 +9,7 @@ Date::Persian::Simple - Represents Persian date.
 
 =head1 VERSION
 
-Version 0.08
+Version 0.09
 
 =cut
 
@@ -42,8 +42,8 @@ our $PERSIAN_DAYS = [
 ];
 
 has persian_epoch  => (is => 'ro', default => sub { 1948320.5       });
-has persian_days   => (is => 'ro', default => sub { $PERSIAN_DAYS   });
-has persian_months => (is => 'ro', default => sub { $PERSIAN_MONTHS });
+has days           => (is => 'ro', default => sub { $PERSIAN_DAYS   });
+has months         => (is => 'ro', default => sub { $PERSIAN_MONTHS });
 
 has year  => (is => 'rw', predicate => 1);
 has month => (is => 'rw', predicate => 1);
@@ -229,18 +229,27 @@ Returns color coded Persian calendar for the given C<$month> and C<$year>.
 sub get_calendar {
     my ($self, $month, $year) = @_;
 
-    $self->validate_month($month);
-    $self->validate_year($year);
+    if (defined $month && defined $year) {
+        $self->validate_month($month);
+        $self->validate_year($year);
+
+        if ($month !~ /^\d+$/) {
+            $month = $self->get_month_number($month);
+        }
+    }
+    else {
+        $month = $self->month;
+        $year  = $self->year;
+    }
 
     my $date = Date::Persian::Simple->new({ year => $year, month => $month, day => 1 });
-    my $days = $self->days_in_persian_month_year($month, $year);
 
     return $self->create_calendar(
         {
             start_index => $date->day_of_week,
-            month_name  => $self->persian_months->[$month],
-            days        => $days,
-            day_names   => $self->persian_days,
+            month_name  => $date->get_month_name,
+            days        => $date->days_in_persian_month_year($month, $year),
+            day_names   => $date->days,
             year        => $year
         });
 }
@@ -275,7 +284,7 @@ sub days_in_persian_month_year {
 sub as_string {
     my ($self) = @_;
 
-    return sprintf("%d, %s %d", $self->day, $self->persian_months->[$self->month], $self->year);
+    return sprintf("%d, %s %d", $self->day, $self->get_month_name, $self->year);
 }
 
 =head1 AUTHOR
