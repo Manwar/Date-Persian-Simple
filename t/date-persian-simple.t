@@ -33,7 +33,7 @@ is($g_date->year, 1389);
 is($g_date->month, 9);
 is($g_date->day, 17);
 
-is($date->days_in_persian_month_year(1, 1394), 31);
+is($date->days_in_month_year(1, 1394), 31);
 ok(!!$date->is_leap_year(1394) == 0);
 
 done_testing();

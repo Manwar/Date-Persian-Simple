@@ -1,6 +1,6 @@
 package Date::Persian::Simple;
 
-$Date::Persian::Simple::VERSION   = '0.09';
+$Date::Persian::Simple::VERSION   = '0.10';
 $Date::Persian::Simple::AUTHORITY = 'cpan:MANWAR';
 
 =head1 NAME
@@ -9,7 +9,7 @@ Date::Persian::Simple - Represents Persian date.
 
 =head1 VERSION
 
-Version 0.09
+Version 0.10
 
 =cut
 
@@ -248,13 +248,13 @@ sub get_calendar {
         {
             start_index => $date->day_of_week,
             month_name  => $date->get_month_name,
-            days        => $date->days_in_persian_month_year($month, $year),
+            days        => $date->days_in_month_year($month, $year),
             day_names   => $date->days,
             year        => $year
         });
 }
 
-sub days_in_persian_month_year {
+sub days_in_month_year {
     my ($self, $month, $year) = @_;
 
     $self->validate_year($year);
