@@ -1,5 +1,9 @@
 Revision history for Date::Persian::Simple
 
+0.11  Wed Jun 29 11:15:00 2016
+      - Addressed issue raised in the CPAN Tester Report.
+        http://www.cpantesters.org/cpan/report/5d3ad818-3d02-11e6-a5ff-abe4273a1f7f
+
 0.10  Sat May 21 08:40:00 2016
       - Renamed method get_days_in_persian_month_year() to days_in_month_year().
       - Updated unit test to respect the above change.

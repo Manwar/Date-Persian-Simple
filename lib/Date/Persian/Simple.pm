@@ -1,6 +1,6 @@
 package Date::Persian::Simple;
 
-$Date::Persian::Simple::VERSION   = '0.10';
+$Date::Persian::Simple::VERSION   = '0.11';
 $Date::Persian::Simple::AUTHORITY = 'cpan:MANWAR';
 
 =head1 NAME
@@ -9,7 +9,7 @@ Date::Persian::Simple - Represents Persian date.
 
 =head1 VERSION
 
-Version 0.10
+Version 0.11
 
 =cut
 
