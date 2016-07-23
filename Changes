@@ -1,5 +1,9 @@
 Revision history for Date::Persian::Simple
 
+0.12  Sat Jul 23 12:00:00 2016
+      - Updated the dependency on Date::Utils v0.20.
+      - Dropped method get_calendar() as it's no longer relevant here.
+
 0.11  Wed Jun 29 11:15:00 2016
       - Addressed issue raised in the CPAN Tester Report.
         http://www.cpantesters.org/cpan/report/5d3ad818-3d02-11e6-a5ff-abe4273a1f7f

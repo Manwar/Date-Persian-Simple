@@ -1,6 +1,6 @@
 package Date::Persian::Simple;
 
-$Date::Persian::Simple::VERSION   = '0.11';
+$Date::Persian::Simple::VERSION   = '0.12';
 $Date::Persian::Simple::AUTHORITY = 'cpan:MANWAR';
 
 =head1 NAME
@@ -9,7 +9,7 @@ Date::Persian::Simple - Represents Persian date.
 
 =head1 VERSION
 
-Version 0.11
+Version 0.12
 
 =cut
 
@@ -218,40 +218,6 @@ sub is_leap_year {
     my ($self, $year) = @_;
 
     return (((((($year - (($year > 0) ? 474 : 473)) % 2820) + 474) + 38) * 682) % 2816) < 682;
-}
-
-=head2 get_calendar($month, $year)
-
-Returns color coded Persian calendar for the given C<$month> and C<$year>.
-
-=cut
-
-sub get_calendar {
-    my ($self, $month, $year) = @_;
-
-    if (defined $month && defined $year) {
-        $self->validate_month($month);
-        $self->validate_year($year);
-
-        if ($month !~ /^\d+$/) {
-            $month = $self->get_month_number($month);
-        }
-    }
-    else {
-        $month = $self->month;
-        $year  = $self->year;
-    }
-
-    my $date = Date::Persian::Simple->new({ year => $year, month => $month, day => 1 });
-
-    return $self->create_calendar(
-        {
-            start_index => $date->day_of_week,
-            month_name  => $date->get_month_name,
-            days        => $date->days_in_month_year($month, $year),
-            day_names   => $date->days,
-            year        => $year
-        });
 }
 
 sub days_in_month_year {
