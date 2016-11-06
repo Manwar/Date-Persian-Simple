@@ -1,5 +1,8 @@
 Revision history for Date::Persian::Simple
 
+0.14  Sun Nov 06 11:55:00 2016
+      - Added key 'provides' to the Makefile.PL script.
+
 0.13  Fri Aug 05 14:45:00 2016
       - Updated the dependency on Date::Utils v0.21.
 
