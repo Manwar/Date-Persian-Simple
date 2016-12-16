@@ -1,5 +1,8 @@
 Revision history for Date::Persian::Simple
 
+0.15  Fri Dec 16 23:15:00 2016
+      - Added test scripts (t/meta-json.t and t/meta-yml.t).
+
 0.14  Sun Nov 06 11:55:00 2016
       - Added key 'provides' to the Makefile.PL script.
 
