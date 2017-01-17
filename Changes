@@ -1,5 +1,8 @@
 Revision history for Date::Persian::Simple
 
+0.16  Tue Jan 17 10:30:00 2017
+      - Updated the dependency on Date::Utils v0.22.
+
 0.15  Fri Dec 16 23:15:00 2016
       - Added test scripts (t/meta-json.t and t/meta-yml.t).
 
